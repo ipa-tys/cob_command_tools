@@ -844,7 +844,24 @@ class simple_script_server:
 		ah.wait_inside()
 		return ah
 		
-	
+	def move_base_rel(self, component_name, parameter_name=[[0,0,0]], blocking=True):	
+		ah = action_handle("move_base_rel", component_name, parameter_name, blocking, self.parse)
+		if(self.parse):
+			return ah
+		else:
+			ah.set_active()
+
+		print "move rel"
+
+		#TODO implement
+		# if error:
+		# ah.set_failed(4)
+		#	return ah
+
+		ah.wait_inside()
+		return ah
+
+
 	## Set the operation mode for different components.
 	#
 	# Based on the component, the corresponding set_operation_mode service will be called.
